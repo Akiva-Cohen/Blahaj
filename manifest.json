@@ -2,13 +2,17 @@
   "manifest_version" : 3,
   "name": "Blahaj",
   "description": "make sure your browser always shows the right word for the sea creature",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "action": {
-    "default_popup" : "show.html",
     "default_icon" : "Icon.png"
   },
-  "permissions": ["activeTab", "scripting"],
-  "background" : {
-    "service_worker" : "back.js"
-  }
+  "content_scripts" :[
+    {
+      "matches" : ["*://*/*"],
+      "all_frames" : true,
+      "js": ["Actions.js"],
+      "run_at" : "document_end"
+    }
+  ],
+  "permissions": ["activeTab", "scripting"]
 }
