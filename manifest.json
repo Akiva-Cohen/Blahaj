@@ -5,6 +5,6 @@
   "version": "0.1.0",
   "action": {
     "default_popup" : "show.html",
-    "default_icon" : "Icon.avif"
+    "default_icon" : "Icon.png"
   }
 }
