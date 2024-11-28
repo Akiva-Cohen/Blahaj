@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "action": {
     "default_popup" : "show.html",
-    "default_icon" : "Icon.png"
+    "default_icon" : "Icon.png",
+  },
+  "permissions": ["activeTab", "scripting"],
+  "background" : {
+    "service_worker" : "back.js"
   }
 }
