@@ -11,16 +11,12 @@ for (let i = 0; i < types.length; i++) {
         }
     }*/
     for (let i = 0; i < text.length; i++) {
-        
-        if (text[i].innerHTML.includes('shark')) {
-            text[i].innerHTML = text[i].innerHTML.replace(/shark/g, "blahaj");
-        }
-        if (text[i].innerHTML.includes("Shark")) {
-            text[i].innerHTML = text[i].innerHTML.replaceAll(/Shark/g, "Blahaj");
-        }
-        if (text[i].innerHTML.includes("SHARK")) {
-            text[i].innerHTML = text[i].innerHTML.replaceAll(/SHARK/g, "BLAHAJ")
-        }
+        text[i].innerHTML = text[i].innerHTML.replace(/Sharks/g, "Blahajar");
+        text[i].innerHTML = text[i].innerHTML.replace(/sharks/g,"blahajar");
+        text[i].innerHTML = text[i].innerHTML.replace(/SHARKS/g, "BLAHAJAR");
+        text[i].innerHTML = text[i].innerHTML.replace(/shark/g, "blahaj");
+        text[i].innerHTML = text[i].innerHTML.replaceAll(/Shark/g, "Blahaj");
+        text[i].innerHTML = text[i].innerHTML.replaceAll(/SHARK/g, "BLAHAJ")
 
     }
 }

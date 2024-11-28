@@ -2,7 +2,7 @@
   "manifest_version" : 3,
   "name": "Blahaj",
   "description": "make sure your browser always shows the right word for the sea creature",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "action": {
     "default_icon" : "Icon.png"
   },
