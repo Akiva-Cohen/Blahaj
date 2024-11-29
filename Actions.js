@@ -1,35 +1,36 @@
 console.log("working")
-const types = ['title','h1','h2','h3','h4','h5','p','li','td','caption','span','a','th','figcaption'];
 let count = 0;
-const nodeList = document.querySelectorAll(types);
-let array = []
-nodeList.forEach(function (currentValue, currentIndex, listObj) {
-    if (isVisible(currentValue)) {
-        array.push(currentValue);
-    }
-});
-const text = array;
-for (let i = 0; i < text.length; i++) {
-    let chars = text[i].innerHTML.length;
-    text[i].innerHTML = text[i].innerHTML.replace(/Sharks/g, "Blåhajar");
-    text[i].innerHTML = text[i].innerHTML.replace(/sharks/g, "blåhajar");
-    text[i].innerHTML = text[i].innerHTML.replace(/SHARKS/g, "BLÅHAJAR");
-    count += ((text[i].innerHTML.length - chars) / 2);
-    chars = text[i].innerHTML.length;
-    text[i].innerHTML = text[i].innerHTML.replace(/shark/g, "blåhaj");
-    text[i].innerHTML = text[i].innerHTML.replace(/Shark/g, "Blåhaj");
-    text[i].innerHTML = text[i].innerHTML.replace(/SHARK/g, "BLÅHAJ");
-    count += (text[i].innerHTML.length - chars);   
-}
-function isVisible(element) {
-    const style = getComputedStyle(element);
-    if (style.display === 'none' || style.width <= 0 || style.height <= 0) {
-        return false;
-    } else {
-        return true;
+handleElement(document.querySelectorAll('html').item(0));
+function handleElement(element) {
+    for (let i = element.childNodes.length; i-- > 0;) {
+        let child = element.childNodes.item(i);
+        if (child.nodeType === 1) {
+            let name = child.nodeName.toLowerCase();
+            if (name != 'style' && name != 'script') {
+                handleElement(child);
+            } 
+        } else if (child.nodeType === 3) {
+            if (typeof(child) === "string") {
+            } else {
+                child.textContent = fixText(child.textContent);
+                console.log(child.textContent);
+            }
+        }
     }
 }
-
+function fixText(element) {
+    let chars = element.length;
+    element = element.replace(/Sharks/g, "Blåhajar");
+    element = element.replace(/sharks/g, "blåhajar");
+    element = element.replace(/SHARKS/g, "BLÅHAJAR");
+    count += ((element.length - chars) / 2);
+    chars = element.length;
+    element = element.replace(/shark/g, "blåhaj");
+    element = element.replace(/Shark/g, "Blåhaj");
+    element = element.replace(/SHARK/g, "BLÅHAJ");
+    count += (element.length - chars);  
+    return element;
+} 
 console.log(count);
 console.log("Sharks".length);
 console.log("Blåhajar".length);
