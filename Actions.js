@@ -1,7 +1,7 @@
 console.log("working")
-const types = ['html'];
+const types = ['title','h1','h2','h3','h4','h5','p','li','td','caption','span','a','th','figcaption'];
 let count = 0;
-const nodeList = document.querySelectorAll('*');
+const nodeList = document.querySelectorAll(types);
 let array = []
 nodeList.forEach(function (currentValue, currentIndex, listObj) {
     if (isVisible(currentValue)) {
