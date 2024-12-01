@@ -2,9 +2,14 @@
   "manifest_version" : 3,
   "name": "Blåhaj",
   "description": "make sure your browser always shows the right word for the sea creature",
-  "version": "1.8.0",
+  "version": "2.0.0",
+  "icons": {
+    "16" : "16bla.png",
+    "48" : "48bla.png",
+    "128" : "128bla.png"
+  },
   "action": {
-    "default_icon" : "Icon.png",
+    "default_icon" : "128bla.png",
     "default_popup" : "show.html"
   },
   "content_scripts" :[
