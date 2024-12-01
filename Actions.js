@@ -1,6 +1,15 @@
-console.log("working")
 let count = 0;
-handleElement(document.querySelectorAll('html').item(0));
+new Promise((resolve) => {
+    chrome.storage.local.get(["on"], function (output) {
+        x = output.on;
+        if (x === undefined || x) {
+            handleElement(document.querySelector('html'));
+            console.log(count + "words replaced");
+            add(count);
+        }
+    });
+});
+//handleElement(document.querySelectorAll('html').item(0));
 function handleElement(element) {
     for (let i = element.childNodes.length; i-- > 0;) {
         let child = element.childNodes.item(i);
@@ -13,7 +22,6 @@ function handleElement(element) {
             if (typeof(child) === "string") {
             } else {
                 child.textContent = fixText(child.textContent);
-                console.log(child.textContent);
             }
         }
     }
@@ -31,6 +39,25 @@ function fixText(element) {
     count += (element.length - chars);  
     return element;
 } 
-console.log(count);
-console.log("Sharks".length);
-console.log("Blåhajar".length);
+
+async function add(a) {
+    if (await get() === undefined) {
+        chrome.storage.local.set({"clicks" : a})
+    } else {
+        chrome.storage.local.set({"clicks" : a + await get()});
+    }
+}
+//returns current value
+async function get() {
+    let y = 0;
+    y = new Promise((resolve, reject) =>  {
+        chrome.storage.local.get(["clicks"], function (output) {
+            x = output.clicks;
+            resolve(x);
+        });
+    });
+    return y;
+
+}
+
+
