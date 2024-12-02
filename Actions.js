@@ -9,7 +9,6 @@ new Promise((resolve) => {
         }
     });
 });
-//handleElement(document.querySelectorAll('html').item(0));
 function handleElement(element) {
     for (let i = element.childNodes.length; i-- > 0;) {
         let child = element.childNodes.item(i);
