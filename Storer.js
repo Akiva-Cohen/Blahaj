@@ -14,7 +14,6 @@ z = new Promise((resolve) => {
             document.getElementById("onOff").checked = true;
         } else {
             document.getElementById("onOff").checked = x;
-            console.log(x);
             resolve(x);
         }
     });
