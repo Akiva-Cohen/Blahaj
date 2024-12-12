@@ -3,6 +3,7 @@
         body {
             height: 125px;
             width: 125px;
+            background-color: #5bcefa;
         }
         /* Container for the toggle */
         .toggle-switch {
@@ -21,7 +22,7 @@
         .slider {
             position: absolute;
             cursor: pointer;
-            background-color: #ccc;
+            background-color: #ffffff;
             border-radius: 24px;
             width: 100%;
             height: 100%;
@@ -35,20 +36,20 @@
             width: 20px;
             left: 4px;
             bottom: 2px;
-            background-color: white;
+            background-color: #5bcefa;
             border-radius: 50%;
             transition: transform 0.3s;
         }
         /* Toggled state */
         .toggle-switch input:checked+.slider {
-            background-color: #4caf50;
+            background-color: #F589B8;
         }
         .toggle-switch input:checked+.slider::before {
             transform: translateX(26px);
         }
     </style>
     <body>
-        <h3>
+        <h3 style="color:#ffffff">
             Blahaj Replacer has fixed
             <span id="clicks"></span>
             words on this device
